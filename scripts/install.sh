@@ -31,6 +31,8 @@ getSystemInfo() {
                 ARCH="arm64";;
         x86_64)
                 ARCH="amd64";;
+	mips64)
+		ARCH="mips64le";;
     esac
 
     # linux requires sudo permissions
@@ -41,7 +43,7 @@ getSystemInfo() {
 }
 
 checkSupported() {
-    local supported_osarch=(darwin-amd64 linux-amd64 linux-arm7 linux-arm64)
+    local supported_osarch=(darwin-amd64 linux-amd64 linux-arm7 linux-arm64 linux-mips64le)
     local machine_osarch="${OS}-${ARCH}"
 
     echo "Checking machine system support"
